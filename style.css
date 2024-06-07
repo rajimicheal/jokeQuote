@@ -1,0 +1,145 @@
+/* Reset some default styles */
+body, h1, blockquote, p, button {
+    margin: 0;
+    font-family: sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: sans-serif;
+    background: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Joke container styles */
+#joke-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+#joke-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated background decoration */
+#joke-container:before, #joke-container:after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+#joke-container:before {
+    animation: pulse 2s infinite;
+}
+
+#joke-container:hover:after {
+    opacity: 1;
+}
+
+/* Heading styles */
+.heading {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Joke blockquote styles */
+blockquote {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #555;
+    font-style: italic;
+    position: relative;
+    padding-left: 20px;
+    animation: fadeIn 1s ease-in-out 0.5s;
+}
+
+blockquote:before {
+    content: open-quote;
+    font-size: 40px;
+    position: absolute;
+    left: 0;
+    top: -10px;
+    color: #007BFF;
+}
+
+/* Punchline paragraph styles */
+#punch {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #888;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out 1s;
+}
+
+/* Button styles */
+button {
+    background: linear-gradient(45deg, #007BFF, #00d4ff);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-in-out 1.5s;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #0056b3, #00a3cc);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
